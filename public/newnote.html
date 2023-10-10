@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main>
+      <div>
+        <nav class="navbar fixed-top navbar-expand-sm navbar-primary">
+          <div class="container">
+          <a
+            href="./index.html"
+            class="navbar-brand mb-0 h1">
+              <img 
+              class="d-inline-block align-top" 
+              src="./image/emo.png"   
+              width="30" height="30" />
+              EmoNotes
+          </a>
+  
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" id="navUsername" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
+            </li>
+          </ul>
+
+      </div>
+      </nav>
+
+      <div class="container-sm">
+        <div class="mt-4 mb-2 d-flex justify-content-between">
+          <h2 class="text-left">Post a New Note</h2>
+        </div>
+        </div>
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+          id="msg"
+        >
+          <span id="msgContent"></span>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form id="newnote">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Title</label
+            >
+            <input
+              name="title"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Please enter the note title here"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Course</label
+            >
+            <input
+              name="course"
+              class="form-control"
+              id="exampleFormControlInput2"
+              placeholder="Please enter the course number here"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Body</label
+            >
+            <textarea
+              name="content"
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="20"
+            ></textarea>
+          </div>
+
+          <div class="d-grid gap-2 mt-4">
+            <button id="save" class="btn btn-primary" type="button">
+              Save
+            </button>
+          </div>
+          <div class="d-grid gap-2 mt-2">
+            <button id="cancelChange" class="btn btn-danger" type="button">
+              Cancel
+            </button>
+          </div>
+
+        </form>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module">
+      import newnote from "./js/newnote.js";
+      newnote.getCurrentUser();
+      newnote.setupLogout();
+      newnote.setupSave();
+      newnote.cancelChange();
+    </script>
+
+  </body>
+</html>

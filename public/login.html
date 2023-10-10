@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="./css/cdn.jsdelivr.net_npm_swiper@10.3.1_swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Header           !!!Check image -->
+    <nav class="navbar fixed-top navbar-expand-sm navbar-primary">
+      <div class="container">
+        <a href="./login.html" class="navbar-brand mb-0 h1">
+          <img
+            class="d-inline-block align-top"
+            src="./image/emo.png"
+            width="30"
+            height="30"
+          />
+          EmoNotes
+        </a>
+        <button
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          class="navbar-toggler"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a href="./login.html" class="nav-link active">
+              Home
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="./signup.html" class="nav-link active">
+              Signup
+            </a>
+          </li>
+  
+        </ul> -->
+        </div>
+        <!-- Search Button -->
+        <!-- <form class="d-flex">
+          <input type="text" class="form-control me-2">
+          <button type="submit" class="btn
+           btn-primary">Search</button>
+        </form> -->
+      </div>
+    </nav>
+
+    <!-- Add background image -->
+    <div class="container-lg">
+      <img src="./image/background.jpg" alt="background" />
+    </div>
+
+    <h1 class="welcome">Welcome to Emo Notes 📝</h1>
+
+    <div class="container container-center">
+      <main class="center-box">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+          id="msg"
+        >
+          <span id="msgContent"></span>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form id="login">
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">User ID</label>
+            <input
+              type="user"
+              id="form2Example1"
+              name="user"
+              class="form-control"
+              required="true"
+            />
+          </div>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Password</label>
+            <input
+              type="password"
+              id="form2Example2"
+              name="password"
+              class="form-control"
+              required="true"
+            />
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Sign in
+            </button>
+          </div>
+        </form>
+
+        <div class="text-center">
+          <p>New User? <a href="./signup.html">SignUp</a></p>
+        </div>
+      </main>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module">
+      import login from "./js/login.js";
+      login.setupLogin();
+    </script>
+
+    <!-- Card Slider Reviews -->
+    <div class="container-card">
+      <div class="slide-container swiper">
+        <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+
+                <div class="card-image">
+                  <img src="./image/chrisp.jpg" alt="" class="card-img" />
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="name">Chris Chen</h4>
+                <p class="description">
+                  Emo Notes streamlines my note-taking, keeps me organized, and
+                  adapts to my student life. Highly recommended!
+                </p>
+
+                <a
+                  href="https://chrischenlixing.github.io/chrisWebP1/index.html"
+                  class="button"
+                  target="_blank"
+                  >View More</a
+                >
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+
+                <div class="card-image">
+                  <img src="./image/junyip.jpeg" alt="" class="card-img" />
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="name">Junyi Liu</h4>
+                <p class="description">
+                  Emo Notes has become an indispensable part of my academic
+                  journey and making note-taking effortless.
+                </p>
+
+                <button class="button">View More</button>
+              </div>
+            </div>
+
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+
+                <div class="card-image">
+                  <img src="./image/silvap.jpeg" alt="" class="card-img" />
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="name">Silva Liao</h4>
+                <p class="description">
+                  If you're a student seeking an efficient note-taking solution,
+                  give Emo Notes a try – it's a game-changer.
+                </p>
+
+                <button class="button">View More</button>
+              </div>
+            </div>
+
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+
+                <div class="card-image">
+                  <img src="./image/ramdomp.jpg" alt="" class="card-img" />
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="name">William Miller</h4>
+                <p class="description">
+                  I highly recommend Emo Notes to enhance your productivity and
+                  streamline your work processes.
+                </p>
+                <h1>Hello</h1>
+                <button class="button">View More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

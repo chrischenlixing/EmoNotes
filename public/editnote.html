@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main>
+       <nav class="navbar fixed-top navbar-expand-sm navbar-primary">
+        <div class="container">
+        <a
+          href="./login.html"
+          class="navbar-brand mb-0 h1">
+            <img 
+            class="d-inline-block align-top" 
+            src="./image/emo.png"   
+            width="30" height="30" />
+            EmoNotes
+        </a>
+
+      <div class="container">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="linkLogout" href="/logout">Log Out</a>
+          </li>
+        </ul>
+ 
+
+        <div class="mt-3 mb-4 d-flex justify-content-between">
+          <div class="h2">Edit Note</div>
+        </div>
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+          id="msg"
+        >
+          <span id="msgContent"></span>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form id="editnote">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Title</label
+            >
+            <input
+              name="title"
+              class="form-control"
+              id="title"
+              disabled="disabled"
+              placeholder="Empty Title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Course</label
+            >
+            <input
+              name="course"
+              class="form-control"
+              id="course"
+              placeholder="Empty Course"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Body</label
+            >
+            <textarea
+              name="content"
+              class="form-control"
+              id="content"
+              rows="20"
+            ></textarea>
+          </div>
+          <div class="d-grid gap-2 mt-4">
+            <button id="save" class="btn btn-primary" type="button">
+              Save
+            </button>
+          </div>
+          <div class="d-grid gap-2 mt-2">
+            <button id="cancelNoteChange" class="btn btn-danger" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module">
+      import editnote from "./js/editnote.js";
+      import shared from "./js/shared.js";
+      shared.getCurrentUser();
+      shared.setupLogout();
+      editnote.getNote();
+      editnote.setupSave();
+      editnote.cancelChange();
+    </script>
+  </body>
+</html>
