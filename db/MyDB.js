@@ -1,10 +1,12 @@
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
 
+
 function MyDB() {
-  const myDB = {};
   // eslint-disable-next-line no-undef
   const mongoURL = process.env.MONGO_URL || "mongodb://localhost:27017";
+  const myDB = {};
+
   myDB.createUser = async function (user = {}) {
     let client;
     try {
