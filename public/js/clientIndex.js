@@ -10,6 +10,14 @@ function ClientIndex() {
   }
 
 
+  function getRandomColor() {
+    const minBrightness = 200; // Adjust this value for lighter or darker colors
+    const randomChannel = () => Math.floor(Math.random() * (255 - minBrightness + 1)) + minBrightness;
+    const red = randomChannel().toString(16).padStart(2, '0');
+    const green = randomChannel().toString(16).padStart(2, '0');
+    const blue = randomChannel().toString(16).padStart(2, '0');
+    return `#${red}${green}${blue}`;
+  }
 
   function renderPosts(posts) {
     const list = document.getElementById("list");
@@ -22,9 +30,12 @@ function ClientIndex() {
 
       const card = document.createElement("div");
       card.className = "card h-100 shadow";
+      card.style.backgroundColor = getRandomColor();
 
       const cardBody = document.createElement("div");
       cardBody.className = "card-body";
+      cardBody.style.overflow = "hidden"; 
+      cardBody.style.whiteSpace = "nowrap";
 
       const h5 = document.createElement("h5");
       h5.className = "card-title";
@@ -76,8 +87,6 @@ function ClientIndex() {
   }
 
   
-
-
 
   function redirect(page) {
     window.location.replace(page + ".html");

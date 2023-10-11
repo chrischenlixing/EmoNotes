@@ -40,6 +40,7 @@ div#msg {
 .container-center {
   text-align: left;
   padding: 0;
+  margin-top: -90px;
 }
 
 .container-about {
@@ -49,19 +50,23 @@ div#msg {
 }
 
 .container-note {
-  background-color:pink ;
-  padding: 10px;
+  background-color: white; 
+  padding: 20px; 
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  margin-bottom: 20px;
 
 }
 
 .container-background {
-  position: fixed; /* Use fixed to cover the entire viewport */
+  position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
   opacity: 0.8;
-  width: 100%; /* Set the width to 100% to cover the entire width of the viewport */
-  height: 100vh; /* Set the height to 100vh to cover the entire viewport height */
+  width: 100%; 
+  height: 100vh; 
 }
 
 .row-spacing {
@@ -130,6 +135,7 @@ main {
   display: flex;
   box-sizing: border-box;
   padding: 20px;
+  margin-top: -150px;
 }
 
 .slide-container {
