@@ -9,6 +9,8 @@ function ClientIndex() {
     divMsg.style.display = "block";
   }
 
+
+
   function renderPosts(posts) {
     const list = document.getElementById("list");
 
@@ -60,16 +62,22 @@ function ClientIndex() {
     }
   }
 
-  async function getPosts(ascending) {
+
+
+  async function getPosts(sortOrder) {
     let res;
     try {
-      res = await fetch(`./listNotes?ascending=${ascending}`);
+      res = await fetch(`./listNotes?sortOrder=${sortOrder}`);
       const posts = await res.json();
       renderPosts(posts);
     } catch (err) {
       console.log(err);
     }
   }
+
+  
+
+
 
   function redirect(page) {
     window.location.replace(page + ".html");
