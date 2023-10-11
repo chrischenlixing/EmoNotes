@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
-
+import "../../dotenv/config";
 
 function MyDB() {
   // eslint-disable-next-line no-undef
