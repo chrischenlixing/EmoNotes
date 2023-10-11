@@ -42,13 +42,26 @@ div#msg {
   padding: 0;
 }
 
-.container-lg {
-  position: absolute;
-  left: 0px;
-  top: 0px;
+.container-about {
+  background-color: pink;
+  padding: 10px;
+
+}
+
+.container-note {
+  background-color:pink ;
+  padding: 10px;
+
+}
+
+.container-background {
+  position: fixed; /* Use fixed to cover the entire viewport */
+  left: 0;
+  top: 0;
   z-index: -1;
   opacity: 0.8;
-  size: 150px;
+  width: 100%; /* Set the width to 100% to cover the entire width of the viewport */
+  height: 100vh; /* Set the height to 100vh to cover the entire viewport height */
 }
 
 .row-spacing {
@@ -291,20 +304,7 @@ html {
   height: 100%;
 }
 
-body {
-  background-color: rgb(240 241 245);
-  background-image: linear-gradient(rgb(210 213 219) 1px, transparent 1px),
-    linear-gradient(to right, rgb(210 213 219) 1px, rgb(240 241 245) 1px);
-  background-size: 20px 20px;
-  display: grid;
-  height: 100%;
-  margin: 0;
-  z-index: -2;
-  font-family: sans-serif;
-  place-items: center;
-  color: rgb(22 25 30);
-}
-
+/* 
 .box {
   --box-border--border: linear-gradient(
     105deg,
@@ -312,7 +312,6 @@ body {
     rgb(61 35 185) 100%
   );
 
-  /* classic 9-slide-scaling with 2px border 4px rounded corners. change `rx` and `ry` parameters to adjust border-radius */
   --box--border__top-left: url("data:image/svg+xml,<svg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='1' y='1' width='18' height='18' rx='4' ry='4' stroke='%23000' stroke-width='2' /></svg>");
   --box--border__top: url("data:image/svg+xml,<svg preserveAspectRatio='none' width='100' height='10' viewBox='0 0 100 10' fill='none' xmlns='http://www.w3.org/2000/svg'><line x1='-1' y1='1' x2='101' y2='1' stroke='%23000' stroke-width='2'/></svg>");
   --box--border__top-right: url("data:image/svg+xml,<svg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='-9' y='1' width='18' height='18' rx='4' ry='4' stroke='black' stroke-width='2' /></svg>");
@@ -322,14 +321,14 @@ body {
   --box--border__bottom: url("data:image/svg+xml,<svg preserveAspectRatio='none' width='100' height='10' viewBox='0 0 100 10' fill='none' xmlns='http://www.w3.org/2000/svg'><line x1='-1' y1='9' x2='101' y2='9' stroke='%23000' stroke-width='2'/></svg>");
   --box--border__bottom-right: url("data:image/svg+xml,<svg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='-9' y='-9' width='18' height='18' rx='4' ry='4' stroke='black' stroke-width='2' /></svg>");
 
-  padding: 1rem;
+  padding: 2rem;
   position: relative;
   /* resize: both; */
   /* overflow: hidden; */
   /* font-weight: 700;
   width: 100%;
   max-width: 30ch; */
-}
+/* }
 
 .box::before {
   content: "";
@@ -337,7 +336,7 @@ body {
   z-index: -1;
   /* top: 0;
   left: 0; */
-  width: 100%;
+  /* width: 100%;
   height: 100%;
   background: var(--box-border--border);
   mask:
@@ -350,4 +349,8 @@ body {
     var(--box--border__bottom) 0.625rem 100% / calc(100% - 1.25rem) 0.625rem,
     var(--box--border__bottom-right) 100% 100% / 0.625rem 0.625rem;
   mask-repeat: no-repeat;
+}  */ 
+
+body {
+  background-color: pink;
 }

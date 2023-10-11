@@ -54,7 +54,8 @@ router.post("/updateProfile", async (req, res) => {
 });
 
 router.get("/listNotes", async (req, res) => {
-  const notes = await myDB.listNotes(req.session.user);
+  const sortOrder = req.query.sortOrder; // Get the sorting order from the query parameters
+  const notes = await myDB.listNotes(req.session.user, sortOrder); // Pass the sorting order to your database query
   res.json(notes);
 });
 
