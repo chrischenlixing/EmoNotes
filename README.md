@@ -45,7 +45,7 @@ The goal of this project is for us applying the concepts learned by building a b
     Copy code
     npm start
     ``` 
-This command will start the development server, and your project will be accessible at http://localhost:3000.
+This command will start the development server, and your project will be accessible at http://localhost:5100.
 
 ## Video
 
