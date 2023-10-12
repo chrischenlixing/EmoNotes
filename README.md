@@ -8,7 +8,8 @@
 
 ## Presentations
 
-[YouTube Video]()  
+[YouTube Video](https://www.youtube.com/watch?v=_50LUIQIwgs) 
+[Slides](https://docs.google.com/presentation/d/1XGUgE0xYDz4MeAFfKxZOGgpzU6a0xOfBnadHk00XB_E/edit#slide=id.p)   
 
 ## Class Link
 
@@ -47,7 +48,4 @@ The goal of this project is for us applying the concepts learned by building a b
     ``` 
 This command will start the development server, and your project will be accessible at http://localhost:5100.
 
-## Video
-
-[Introduction](https://chrischenlixing.github.io/chrisWebP1/index.html)
 # EmoNotes
