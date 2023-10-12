@@ -21,15 +21,14 @@ The goal of this project is for us applying the concepts learned by building a b
 
 ## Screenshot
 
-![Homepage Screenshot](./chrisWebP1/assets/img/homepageshot.jpg)
+![Homepage Screenshot]()
 
 ## Instructions to Build
 
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/chrischenlixing/chrischenlixing.github.io.git
-   ```
+   git clone [https://github.com/chrischenlixing/EmoNotes.git]
 2. Change to the project directory:
 
    ``` bash
