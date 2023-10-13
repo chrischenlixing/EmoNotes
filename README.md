@@ -8,7 +8,7 @@
 
 ## Presentations
 
-[YouTube Video](https://www.youtube.com/watch?v=_50LUIQIwgs) 
+[Video](https://www.youtube.com/watch?v=_50LUIQIwgs) 
 [Slides](https://docs.google.com/presentation/d/1XGUgE0xYDz4MeAFfKxZOGgpzU6a0xOfBnadHk00XB_E/edit#slide=id.p)   
 
 ## Class Link
@@ -30,13 +30,13 @@ The goal of this project is for us applying the concepts learned by building a b
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/chrischenlixing/chrischenlixing.github.io.git
+   git clone https://github.com/chrischenlixing/EmoNotes.git
    ```
 2. Make Sure your MongoDB is running on localhost:
 2. Change to the project directory:
 
    ``` bash
-    cd yourproject
+    cd EmoNotes
    ```
 3. Install project dependencies:
    ``` bash
@@ -49,4 +49,3 @@ The goal of this project is for us applying the concepts learned by building a b
     ``` 
 This command will start the development server, and your project will be accessible at http://localhost:5100.
 
-# EmoNotes
