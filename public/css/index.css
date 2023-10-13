@@ -1,0 +1,19 @@
+.container-note {
+    background-color: white; 
+    padding: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px;
+  
+  }
+
+
+  .post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  

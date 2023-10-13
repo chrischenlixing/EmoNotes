@@ -30,10 +30,10 @@ The goal of this project is for us applying the concepts learned by building a b
    ```bash
    git clone https://github.com/chrischenlixing/chrischenlixing.github.io.git
    ```
+2. Make Sure your MongoDB is running on localhost:
 2. Change to the project directory:
 
    ``` bash
-    Copy code
     cd yourproject
    ```
 3. Install project dependencies:
@@ -43,7 +43,6 @@ The goal of this project is for us applying the concepts learned by building a b
 4. To use this project, follow these steps:
 
     ``` bash
-    Copy code
     npm start
     ``` 
 This command will start the development server, and your project will be accessible at http://localhost:5100.
