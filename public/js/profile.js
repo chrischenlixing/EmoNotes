@@ -11,6 +11,7 @@ function Profile() {
     myschool.innerHTML = `${user.school}`;
     const mymajor = document.getElementById("major");
     mymajor.innerHTML = `${user.major}`;
+    
   }
 
   function redirect(page) {
@@ -72,4 +73,12 @@ function Profile() {
   return profile;
 }
 
-export default Profile();
+document.addEventListener("DOMContentLoaded", async () => {
+  const profile= Profile();
+      
+  profile.getProfile();
+  profile.setupEdit();
+  profile.setupCancel();
+  
+
+})

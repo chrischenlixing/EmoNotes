@@ -11,7 +11,7 @@ function ClientIndex() {
 
 
   function getRandomColor() {
-    const minBrightness = 200; // Adjust this value for lighter or darker colors
+    const minBrightness = 200; 
     const randomChannel = () => Math.floor(Math.random() * (255 - minBrightness + 1)) + minBrightness;
     const red = randomChannel().toString(16).padStart(2, '0');
     const green = randomChannel().toString(16).padStart(2, '0');
@@ -20,7 +20,9 @@ function ClientIndex() {
   }
 
   function renderPosts(posts) {
+    console.log(posts)
     const list = document.getElementById("list");
+    list.innerHTML = '';
 
     for (let i = 0; i < posts.length; i++) {
       const post = posts[i];
@@ -64,29 +66,44 @@ function ClientIndex() {
 
       list.appendChild(col);
 
-      // Add a line break after every third post
       if ((i + 1) % 3 === 0) {
         const lineBreak = document.createElement("div");
-        lineBreak.className = "w-100"; // Force a new row
+        lineBreak.className = "w-100"; 
         list.appendChild(lineBreak);
       }
     }
   }
 
 
-
-  async function getPosts(sortOrder) {
+  function sortPostsByTitle(posts, sortOrder) {
+    if (sortOrder === "ascending") {
+      return posts.sort((a, b) => a.title.localeCompare(b.title));
+    } else {
+      return posts.sort((a, b) => b.title.localeCompare(a.title));
+    }
+  }
+  
+  async function getPosts(sortOrder = "ascending") {
     let res;
     try {
       res = await fetch(`./listNotes?sortOrder=${sortOrder}`);
       const posts = await res.json();
-      renderPosts(posts);
+  
+      const sortedPosts = sortPostsByTitle(posts, sortOrder);
+  
+      renderPosts(sortedPosts);
     } catch (err) {
       console.log(err);
     }
   }
 
-  
+
+  clientIndex.changeOrder = function () {
+    const orderSelect = document.getElementById("orderSelect");
+    const selectedOrder = orderSelect.value;
+    console.log('ok')
+    getPosts(selectedOrder); 
+  }
 
   function redirect(page) {
     window.location.replace(page + ".html");
@@ -188,7 +205,27 @@ function ClientIndex() {
 
   clientIndex.getCurrentUser = getCurrentUser;
 
+  clientIndex.sort = function (){
+    var selectElement = document.getElementById("orderSelect");
+
+    selectElement.addEventListener("change", function() {
+    clientIndex.changeOrder();
+})
+  }
+
+
   return clientIndex;
 }
 
-export default ClientIndex();
+document.addEventListener("DOMContentLoaded", async () => {
+  const clientIndex = ClientIndex();
+      
+      clientIndex.getCurrentUser();
+      clientIndex.setupLogout();
+      clientIndex.setupNewpostClick();
+      clientIndex.sort();
+      clientIndex.setupSignup();
+
+})
+
+

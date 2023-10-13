@@ -103,4 +103,16 @@ function Note() {
   return note;
 }
 
-export default Note();
+document.addEventListener("DOMContentLoaded", async () => {
+  const note= Note();
+      
+  note.getNote();
+  note.setupEdit();
+  note.setupDelete();
+  note.setupLogout();
+  note.getCurrentUser();
+  
+
+})
+
+

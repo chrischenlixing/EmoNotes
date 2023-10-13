@@ -67,4 +67,11 @@ function Shared() {
   return shared;
 }
 
-export default Shared();
+document.addEventListener("DOMContentLoaded", async () => {
+  const shared = Shared();
+      
+  shared.getCurrentUser();
+  shared.setupLogout();
+  
+
+})

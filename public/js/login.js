@@ -1,5 +1,5 @@
-function ClientIndex() {
-  const clientIndex = {};
+function Login() {
+  const login = {};
   const divMsg = document.querySelector("div#msg");
 
   let currentUser = null;
@@ -49,7 +49,7 @@ function ClientIndex() {
     }
   }
 
-  clientIndex.setupLogin = function () {
+  login.setupLogin = function () {
     console.log("Setup login");
     const form = document.querySelector("form#login");
     let res;
@@ -73,7 +73,7 @@ function ClientIndex() {
     });
   };
 
-  clientIndex.setupSignup = function () {
+  login.setupSignup = function () {
     console.log("Setup signup");
     const form = document.querySelector("form#signup");
     let res;
@@ -97,7 +97,7 @@ function ClientIndex() {
     });
   };
 
-  clientIndex.setupLogout = function () {
+  login.setupLogout = function () {
     const linkLogout = document.querySelector("#linkLogout");
     let res;
     linkLogout.addEventListener("click", async (event) => {
@@ -110,8 +110,16 @@ function ClientIndex() {
     });
   };
 
-  clientIndex.getCurrentUser = getCurrentUser;
-  return clientIndex;
+  login.getCurrentUser = getCurrentUser;
+  return login;
 }
 
-export default ClientIndex();
+document.addEventListener("DOMContentLoaded", async () => {
+  const login= Login();
+      
+  login.setupLogin();
+  login.setupSignup();
+
+})
+
+

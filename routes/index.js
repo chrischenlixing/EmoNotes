@@ -11,15 +11,21 @@ router.get("/getCurrentUser", (req, res) => {
   });
 });
 
+
 router.post("/authenticate", async (req, res) => {
   const user = req.body;
-  const success = await myDB.authenticate(user);
-  if (success) {
-    req.session.user = { user: user.user };
-    res.json({ isLoggedIn: true, err: null });
-  } else {
-    req.session.user = null;
-    res.json({ isLoggedIn: false, err: "Your Email or Password is incorrect" });
+  try {
+    const success = await myDB.authenticate(user);
+    if (success) {
+      req.session.user = { user: user.user };
+      res.json({ isLoggedIn: true, err: null });
+    } else {
+      req.session.user = null;
+      res.json({ isLoggedIn: false, err: "Your Email or Password is incorrect" });
+    }
+  } catch (error) {
+    console.error("Database error in /authenticate:", error);
+    res.status(500).json({ isLoggedIn: false, err: "Database error" });
   }
 });
 
@@ -30,13 +36,18 @@ router.get("/logout", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   const user = req.body;
-  const success = await myDB.createUser(user);
-  if (!success) {
-    res.json({ isLoggedIn: false, err: "User already exists" });
-    return;
+  try {
+    const success = await myDB.createUser(user);
+    if (!success) {
+      res.json({ isLoggedIn: false, err: "User already exists" });
+      return;
+    }
+    req.session.user = { user: user.user };
+    res.json({ isLoggedIn: true, err: null });
+  } catch (error) {
+    console.error("Database error in /signup:", error);
+    res.status(500).json({ isLoggedIn: false, err: "Database error" });
   }
-  req.session.user = { user: user.user };
-  res.json({ isLoggedIn: true, err: null });
 });
 
 router.get("/getUser", async (req, res) => {
@@ -54,9 +65,23 @@ router.post("/updateProfile", async (req, res) => {
 });
 
 router.get("/listNotes", async (req, res) => {
-  const sortOrder = req.query.sortOrder; // Get the sorting order from the query parameters
-  const notes = await myDB.listNotes(req.session.user, sortOrder); // Pass the sorting order to your database query
-  res.json(notes);
+  try {
+    const sortOrder = req.query.sortOrder;
+    const notes = await myDB.listNotes(req.session.user);
+
+    if (sortOrder === "ascending") {
+      notes.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortOrder === "descending") {
+      notes.sort((a, b) => b.title.localeCompare(a.title));
+    } else {
+      notes.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    res.json(notes);
+  } catch (error) {
+    console.error("Error listing notes:", error);
+    res.status(500).json({ error: "An error occurred while listing the notes" });
+  }
 });
 
 router.post("/createNote", async (req, res) => {
@@ -67,23 +92,38 @@ router.post("/createNote", async (req, res) => {
 });
 
 router.post("/editNote", async (req, res) => {
-  console.log("updateNote");
-  await myDB.editNote(req.query.id, req.body);
-  res.json({ msg: "Note Updated" });
+  try {
+    console.log("updateNote");
+    await myDB.editNote(req.query.id, req.body);
+    res.json({ msg: "Note Updated" });
+  } catch (error) {
+    console.error("Error editing note:", error);
+    res.status(500).json({ error: "An error occurred while editing the note" });
+  }
 });
 
 router.get("/deleteNote", async (req, res) => {
-  console.log("deleteNote");
-  console.log(req.query.id);
-  await myDB.deleteNote(req.query.id);
-  res.json({ msg: "Note Deleted" });
+  try {
+    console.log("deleteNote");
+    console.log(req.query.id);
+    await myDB.deleteNote(req.query.id);
+    res.json({ msg: "Note Deleted" });
+  } catch (error) {
+    console.error("Error deleting note:", error);
+    res.status(500).json({ error: "An error occurred while deleting the note" });
+  }
 });
 
 router.get("/getNote", async (req, res) => {
-  console.log("getNote");
-  console.log(req.query.id);
-  const note = await myDB.getNote(req.query.id);
-  res.json(note);
+  try {
+    console.log("getNote");
+    console.log(req.query.id);
+    const note = await myDB.getNote(req.query.id);
+    res.json(note);
+  } catch (error) {
+    console.error("Error fetching note:", error);
+    res.status(500).json({ error: "An error occurred while fetching the note" });
+  }
 });
 
 export default router;

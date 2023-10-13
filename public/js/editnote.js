@@ -69,4 +69,12 @@ function EditNote() {
   return editNote;
 }
 
-export default EditNote();
+document.addEventListener("DOMContentLoaded", async () => {
+  const editNote = EditNote();
+      
+    editNote.getNote();
+    editNote.setupSave();
+    editNote.cancelChange();
+
+})
+

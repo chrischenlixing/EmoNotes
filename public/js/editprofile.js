@@ -55,4 +55,11 @@ function EditProfile() {
   return editProfile;
 }
 
-export default EditProfile();
+document.addEventListener("DOMContentLoaded", async () => {
+  const editProfile = EditProfile();
+      
+  editProfile.setupSave();
+  editProfile.getProfile();
+
+})
+

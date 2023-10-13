@@ -78,4 +78,16 @@ function NewNote() {
   return newNote;
 }
 
-export default NewNote();
+document.addEventListener("DOMContentLoaded", async () => {
+  const newNote= NewNote();
+      
+  
+  newNote.getCurrentUser();
+  newNote.setupLogout();
+  newNote.setupSave();
+  newNote.cancelChange();
+
+  
+
+})
+

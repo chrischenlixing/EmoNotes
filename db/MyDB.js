@@ -1,9 +1,11 @@
 import { MongoClient } from "mongodb";
 import { ObjectId } from "mongodb";
+import dotenv from 'dotenv';
+dotenv.config();
 
 function MyDB() {
-  // eslint-disable-next-line no-undef
-  const mongoURL = process.env.MONGO_URL || "mongodb://localhost:27017";
+  const mongoURL = "mongodb://localhost:27017";
+  console.log(mongoURL)
   const myDB = {};
 
   myDB.createUser = async function (user = {}) {
@@ -31,6 +33,19 @@ function MyDB() {
       return res;
     } finally {
       console.log("Note: Closing db connection");
+      client.close();
+    }
+  };
+
+  myDB.deleteUser = async function (user = {}) {
+    let client;
+    try {
+      client = new MongoClient(mongoURL);
+      const users = client.db('Note').collection('users');
+      const res = await users.deleteOne({ user: user.user });
+      return res;
+    } finally {
+      console.log('Note: Closing db connection');
       client.close();
     }
   };
@@ -125,7 +140,9 @@ function MyDB() {
       const notes = client.db("Note").collection("notes");
       const res = await notes.updateOne(
         { _id: ObjectId(id) },
-        { $set: { content: entry.content } },
+        { $set: {
+          course: entry.course, 
+          content: entry.content } },
       );
       return res;
     } finally {
