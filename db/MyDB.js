@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 function MyDB() {
-  const mongoURL = "mongodb://localhost:27017";
+  const mongoURL = process.env.MONGO_URL || "mongodb://localhost:27017";
   console.log(mongoURL)
   const myDB = {};
 
@@ -140,8 +140,7 @@ function MyDB() {
       const notes = client.db("Note").collection("notes");
       const res = await notes.updateOne(
         { _id: ObjectId(id) },
-        { $set: {
-           
+        { $set: { 
           content: entry.content } },
       );
       return res;
