@@ -21,7 +21,9 @@ The goal of this project is for us applying the concepts learned by building a b
 
 ## Screenshot
 
-![Homepage Screenshot](./chrisWebP1/assets/img/homepageshot.jpg)
+![Login Screenshot](./public/image/ThumbNail.png)
+![HomePage Screenshot](./public/image/IndexScreenShot.png)s
+
 
 ## Instructions to Build
 
