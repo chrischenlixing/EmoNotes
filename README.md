@@ -21,18 +21,26 @@ The goal of this project is for us applying the concepts learned by building a b
 
 ## Screenshot
 
+<<<<<<< HEAD
 ![Login Screenshot](./public/image/ThumbNail.png)
 ![HomePage Screenshot](./public/image/IndexScreenShot.png)s
 
+=======
+![Homepage Screenshot]()
+>>>>>>> 602910f668837e91e5a1b3f1173736dc6d6102c7
 
 ## Instructions to Build
 
 1. Clone the repository to your local machine:
 
    ```bash
+<<<<<<< HEAD
    git clone https://github.com/chrischenlixing/chrischenlixing.github.io.git
    ```
 2. Make Sure your MongoDB is running on localhost:
+=======
+   git clone [https://github.com/chrischenlixing/EmoNotes.git]
+>>>>>>> 602910f668837e91e5a1b3f1173736dc6d6102c7
 2. Change to the project directory:
 
    ``` bash
