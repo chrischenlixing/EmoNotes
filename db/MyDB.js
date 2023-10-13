@@ -141,7 +141,7 @@ function MyDB() {
       const res = await notes.updateOne(
         { _id: ObjectId(id) },
         { $set: {
-          course: entry.course, 
+           
           content: entry.content } },
       );
       return res;
