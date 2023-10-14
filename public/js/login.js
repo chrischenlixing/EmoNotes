@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const login= Login();
       
   login.setupLogin();
-  login.setupSignup();
 
 })
 

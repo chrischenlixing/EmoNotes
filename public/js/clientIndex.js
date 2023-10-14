@@ -159,7 +159,7 @@ function ClientIndex() {
     });
   };
 
-  clientIndex.setupSignup = function () {
+  clientIndex.setupSignUp = function () {
     console.log("Setup signup");
     const form = document.querySelector("form#signup");
     let res;
@@ -219,13 +219,14 @@ function ClientIndex() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const clientIndex = ClientIndex();
-      
       clientIndex.getCurrentUser();
-      clientIndex.setupLogout();
       clientIndex.setupNewpostClick();
       clientIndex.sort();
-      clientIndex.setupSignup();
+      clientIndex.setupLogout();
 
 })
+
+
+
 
 
