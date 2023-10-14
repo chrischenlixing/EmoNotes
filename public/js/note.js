@@ -2,7 +2,7 @@ function Note() {
   const note = {};
   const divMsg = document.querySelector("div#msg");
 
-  let currentUser = null;
+
 
   function showMessage(msg) {
     divMsg.querySelector("#msgContent").innerHTML = msg;
@@ -27,23 +27,14 @@ function Note() {
     try {
       res = await fetch("./getCurrentUser");
       const resUser = await res.json();
-      if (resUser.isLoggedIn) {
-        currentUser = resUser.user;
-        renderUsername(currentUser.user);
-      } else {
-        currentUser = null;
+      if (! resUser.isLoggedIn) {
         redirect("login");
-      }
+      } 
     } catch (err) {
       console.log(err);
     }
   };
 
-  function renderUsername(username) {
-    console.log("renderUsername");
-    const usernameEl = document.getElementById("navUsername");
-    usernameEl.innerHTML = "Welcome, " + username + "!";
-  }
 
   note.setupLogout = () => {
     const linkLogout = document.querySelector("#linkLogout");
@@ -111,7 +102,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   note.setupDelete();
   note.setupLogout();
   note.getCurrentUser();
-  
 
 })
 
