@@ -40,9 +40,9 @@ function EditNote() {
 
   editNote.setupSave = function () {
     const form = document.querySelector("form#editnote");
-    const linkLogout = document.getElementById("save");
+    const s = document.getElementById("save");
     let res;
-    linkLogout.addEventListener("click", async (event) => {
+    s.addEventListener("click", async (event) => {
       event.preventDefault();
       const p = new URLSearchParams(window.location.search);
       res = await fetch("./editNote?id=" + p.get("id"), {

@@ -2,8 +2,6 @@ function NewNote() {
   const newNote = {};
   const divMsg = document.querySelector("div#msg");
 
-  let currentUser = null;
-
   function showMessage(msg) {
     divMsg.querySelector("#msgContent").innerHTML = msg;
     divMsg.style.display = "block";
@@ -18,25 +16,13 @@ function NewNote() {
     try {
       res = await fetch("./getCurrentUser");
       const resUser = await res.json();
-      if (resUser.isLoggedIn) {
-        currentUser = resUser.user;
-        renderUsername(currentUser.user);
-      } else {
-        currentUser = null;
+      if (!resUser.isLoggedIn) {
         redirect("login");
-      }
+      } 
     } catch (err) {
       console.log(err);
     }
   };
-
-  function renderUsername(username) {
-    console.log("renderUsername");
-    const usernameEl = document.getElementById("navUsername");
-    const myAccountLink = document.getElementById("accountName");
-    myAccountLink.innerHTML = "Welcome, " + username + "!";
-    usernameEl.innerHTML = "My Account";
-  }
 
   newNote.setupLogout = function () {
     const linkLogout = document.querySelector("#linkLogout");
@@ -81,7 +67,6 @@ function NewNote() {
 document.addEventListener("DOMContentLoaded", async () => {
   const newNote= NewNote();
       
-  
   newNote.getCurrentUser();
   newNote.setupLogout();
   newNote.setupSave();

@@ -20,10 +20,11 @@ function MyDB() {
       await users.insertOne(user);
       return true;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
+
   myDB.getUser = async function (user = {}) {
     let client;
     try {
@@ -32,7 +33,7 @@ function MyDB() {
       const res = await users.findOne({ user: user.user });
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
@@ -45,7 +46,7 @@ function MyDB() {
       const res = await users.deleteOne({ user: user.user });
       return res;
     } finally {
-      console.log('Note: Closing db connection');
+      console.log('Note: db disconnected');
       client.close();
     }
   };
@@ -68,7 +69,7 @@ function MyDB() {
       );
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
@@ -84,7 +85,7 @@ function MyDB() {
       }
       return userInDb.password == user.password;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
@@ -102,7 +103,7 @@ function MyDB() {
       });
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
@@ -115,7 +116,7 @@ function MyDB() {
       const res = await notes.find({ author: user.user }).toArray();
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
@@ -129,10 +130,11 @@ function MyDB() {
       console.log(res);
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
+
   myDB.editNote = async function (id = "", entry = {}) {
     let client;
     try {
@@ -141,14 +143,16 @@ function MyDB() {
       const res = await notes.updateOne(
         { _id: ObjectId(id) },
         { $set: { 
+          course: entry.course, 
           content: entry.content } },
       );
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };
+
   myDB.deleteNote = async function (id = "") {
     let client;
     try {
@@ -157,7 +161,7 @@ function MyDB() {
       const res = await notes.deleteOne({ _id: ObjectId(id) });
       return res;
     } finally {
-      console.log("Note: Closing db connection");
+      console.log("Note: db disconnected");
       client.close();
     }
   };

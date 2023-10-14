@@ -2,7 +2,7 @@ function ClientIndex() {
   const clientIndex = {};
   const divMsg = document.querySelector("div#msg");
 
-  let currentUser = null;
+
 
   function showMessage(msg) {
     divMsg.querySelector("#msgContent").innerHTML = msg;
@@ -82,6 +82,21 @@ function ClientIndex() {
       return posts.sort((a, b) => b.title.localeCompare(a.title));
     }
   }
+
+  clientIndex.changeOrder = function () {
+    const orderSelect = document.getElementById("orderSelect");
+    const selectedOrder = orderSelect.value;
+    console.log('ok')
+    getPosts(selectedOrder); 
+  }
+
+  clientIndex.sort = function (){
+    var selectElement = document.getElementById("orderSelect");
+
+    selectElement.addEventListener("change", function() {
+    clientIndex.changeOrder();
+})
+  }
   
   async function getPosts(sortOrder = "ascending") {
     let res;
@@ -97,29 +112,19 @@ function ClientIndex() {
     }
   }
 
-
-  clientIndex.changeOrder = function () {
-    const orderSelect = document.getElementById("orderSelect");
-    const selectedOrder = orderSelect.value;
-    console.log('ok')
-    getPosts(selectedOrder); 
-  }
-
   function redirect(page) {
     window.location.replace(page + ".html");
   }
 
   async function getCurrentUser() {
     let res;
+
     try {
       res = await fetch("./getCurrentUser");
       const resUser = await res.json();
       if (resUser.isLoggedIn) {
-        currentUser = resUser.user;
         getPosts();
-        renderUsername(currentUser.user);
       } else {
-        currentUser = null;
         redirect("login");
       }
     } catch (err) {
@@ -127,37 +132,6 @@ function ClientIndex() {
     }
   }
 
-  function renderUsername(username) {
-    console.log("renderUsername");
-    const usernameEl = document.getElementById("navUsername");
-    const myAccountLink = document.getElementById("accountName");
-    myAccountLink.innerHTML = "Welcome, " + username + "!";
-    usernameEl.innerHTML = "My Account";
-  }
-
-  clientIndex.setupLogin = function () {
-    console.log("Setup login");
-    const form = document.querySelector("form#login");
-    let res;
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      console.log("Authenticating");
-      try {
-        res = await fetch("./authenticate", {
-          method: "POST",
-          body: new URLSearchParams(new FormData(form)),
-        });
-        const resUser = await res.json();
-        if (resUser.isLoggedIn) {
-          redirect("index");
-        } else {
-          showMessage(resUser.err);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    });
-  };
 
   clientIndex.setupSignUp = function () {
     console.log("Setup signup");
@@ -197,21 +171,13 @@ function ClientIndex() {
   };
 
   clientIndex.setupNewpostClick = function () {
-    const np = document.getElementById("newpost");
-    np.addEventListener("click", () => {
+    const newpost = document.getElementById("newpost");
+    newpost.addEventListener("click", () => {
       window.location.replace("newnote.html");
     });
   };
 
   clientIndex.getCurrentUser = getCurrentUser;
-
-  clientIndex.sort = function (){
-    var selectElement = document.getElementById("orderSelect");
-
-    selectElement.addEventListener("change", function() {
-    clientIndex.changeOrder();
-})
-  }
 
 
   return clientIndex;
