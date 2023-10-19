@@ -193,6 +193,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 })
 
 
-
-
-
+/* It's a well structured project overall. The design is very clear and easy to understand. 
+ * The JS and CSS code is orgnaized in modules, the pages are formatted, and the files are separated in different folders.
+ */
