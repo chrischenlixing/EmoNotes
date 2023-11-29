@@ -69,5 +69,5 @@ Sorting: Sorting notes by title in ascending/descending order.
     ``` bash
     npm start
     ``` 
-This command will start the development server, and your project will be accessible at     ``` bash http://localhost:5100    ``` 
+This command will start the development server, and your project will be accessible at     ```  http://localhost:5100    ``` 
 
